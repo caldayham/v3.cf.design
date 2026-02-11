@@ -117,7 +117,7 @@
             color: #E5E4E2;
         }
 
-        /* Hover Pause for Reviews & Hero */
+        /* Hover Pause - per column */
         .hover-pause:hover .animate-scroll-up,
         .hover-pause:hover .animate-scroll-down {
             animation-play-state: paused;
@@ -177,51 +177,66 @@
 
         // --- Data ---
         const PROCESS_STEPS = [
-            { id: 1, title: "Consultation", intro: "We visit your property in person to understand your vision and assess your space. You'll receive:", points: ["Honest, unbiased advice on achieving your outdoor goals", "Material recommendations with cost estimates and trade-offs", "Guidance on hiring contractors and maximizing your budget", "Solutions that fit your space while balancing function and aesthetics", "A complete 3D site scan for future design work"], icon: <Layout className="w-6 h-6" />, img: "assets/cal-fynn-tina.jpg" },
-            { id: 2, title: "Design", intro: "If you choose to move forward, we collaborate closely through focused review and revision meetings to construct and refine the details until the design feels right for you, your home, and the way the space will be lived in.", points: ["2D Concepts: Two unique designs tailored to your space", "3D Visualizations: Realistic renderings to feel the result before building", "Material Selection: Filtering options through your preferences", "Construction Documents: Detailed grading, drainage, and install plans"], outro: "We leave this phase with a design contractors can execute with minimal risk.", icon: <PenTool className="w-6 h-6" />, img: "assets/cal-fynn-outdoor-design.jpg" },
-            { id: 3, title: "Bid", intro: "Finding the right contractor shouldn't be a gamble. We help you navigate the bidding process with confidence:", points: ["Develop a list of compatible, licensed contractors in your area", "Draft an Invitation to Bid (ITB) that resonates with quality contractors", "Negotiate terms for best alignment (schedules, warranties)", "Review all bids and provide our recommendation"], icon: <FileText className="w-6 h-6" />, img: "assets/ignite-in-progress.jpg" },
-            { id: 4, title: "Build", intro: "Once contracts are signed, we stay involved to ensure your vision becomes reality:", points: ["Monitor construction progress against your approved plans", "Address questions and challenges during installation", "Advocate on your behalf if issues need resolution", "Stay involved until your project is complete"], icon: <Hammer className="w-6 h-6" />, img: "assets/ignite-driveway-after.jpg" }
+            { id: 1, title: "Consultation (Free)", intro: "We visit your property in person to asses your problem and understand your goals. You'll receive:", points: ["Creative solutions that maximize function and aesthetics", "Material recommendations with cost estimates & trade-offs", "Clear execution timeline and schedule", "An enjoyable conversation with two enthusiastic builders!"], icon: <Layout className="w-6 h-6" />, img: "assets/cal-fynn-outdoor-design.jpg" },
+            { id: 2, title: "Design (Free)", intro: "If your problem and our capabilities are aligned, Cal & Fynn assemble a complete proposal. You'll receive:", points: ["Detailed designs including measurments and material specs", "Precise project timeline and detailed scope of work", "Itemized and exact project costs (no false 'estimates')", "A full professional proposal, sent via docusign, directly to your email"], outro: "We leave this phase with a design contractors can execute with minimal risk.", icon: <PenTool className="w-6 h-6" />, img: "assets/diagram_collage.jpg" },
+            { id: 3, title: "Build", intro: "If you decide CFD is the right team to execute, we execute. You'll receive:", points: ["Complete, clear, & continuous project communications", "Premium build quality (we always go the extra mile for a better product)", "Flexible execution without affecting price, to a reasonable extent", "Complete site clean up"], icon: <FileText className="w-6 h-6" />, img: "assets/cal-fynn-build.jpg" },
         ];
 
         const FAQS = [
-            {
-                q: "Why can't I just hire a contractor directly?",
-                a: "You absolutely can. Contractors build what you ask for—but they won’t stop you from asking for the wrong thing. If you say “patio,” you’ll get a patio. Our job is to make sure it’s in the right place, sized correctly, and built from materials you’ll still love years from now. We help you make the mistakes on paper, where they’re cheap, instead of in concrete, where they’re not."
-            },
-            { q: "What exactly is a '3D Site Scan'?", a: "It's a bit of tech wizardry. We use special cameras to create a 'digital twin' of your yard. This lets us measure slopes, trees, and existing structures with extreme accuracy without needing to spend hours with a tape measure. It means your design actually fits your yard perfectly." },
-            { q: "Do you guys do the actual digging?", a: "We leave the heavy machinery to the pros. We are your advocates, designers, and project guardians. We find the best licensed contractors, negotiate fair prices for you, and make sure they follow the plan. Think of us as your knowledgeable best friend who speaks 'contractor'." },
-            { q: "This sounds expensive. Is it?", a: "Investing in a plan is actually the best way to save money. 'Change orders' (changing your mind once construction starts) are the biggest budget killer. By planning the details first, contractors can give you a clear price with no surprises. We often save our clients more than our fee just by negotiating better bids." },
-            { q: "I have no idea what I want. Is that okay?", a: "That's our favorite starting point! You don't need to speak landscape architecture. You just need to tell us how you want to *feel* in your space (e.g., 'I want to drink coffee in the sun' or 'I need to hide the neighbor's ugly fence'). We translate those feelings into blueprints." }
+            { q: "How much does it cost?", a: "While this question is highly dependent on the scale and type of project, CFD aims to have a labor margin of around 50% - so if the materials cost $500, the job would cost around $1000. For the care, precision, flexibility, and overall dedication we pour into each project this is a killer deal. In fact, CFD has ZERO unsatisfied client alumni - something we are very proud of - and over half of our compleated projects have been returning clients. All of that said, we are not always the cheapest option, we like a quality final product and prefer to work with higher-end materials, if you're looking for quick and dirty we'll be the first to tell you we're not the team for you. Finally, we don't work at an hourly rate, we define a clear scope for the project and then bid it all as one job - if you're looking for hourly labor we are also not the right team for you." },
+            { q: "Are you licensed?", a: "No, but we are fully insured. Most of the work we do falls under the legal limitations of California Assembly Bill 2622 for unlicensed work, or the project surrounds movable personal property, not permanently attatched 'real' property which according to California legislature does not require a license - think an independent table or chair. We are fully insured though, so you have no personal liability for us if anything were to happen on your property - although nothing like that has happened and we are highly incentivised to make sure it never does. Any work that does not fall under one of these legal umbrellas we either bring in a licensed contractor to work with or we need to turn down - we are not a good option for people looking to complete larger projects, such as structural improvements, remodeling, electrical, plumbing, roofing - those should be compleated by a licensed contractor of that specialty, many of which we know well and would be happy to put you in contact with."},
+            { q: "Do you only do carpentry?", a: "Carpentry is where our value reaches it's pinacle, but we are also highly capable masons, welders, junk haulers, demolition experts, and to be honest we're pretty confident we could build just about anything given enough resources. If you're unsure if we'd be a good fit just let us know what you're facing using the intake form below, we'll be the first to tell you if it's not in our wheelhouse - we know what types of projects go well and which ones don't and we won't subject you or ourselves to anything unpleasant. If we don't end up being a good fit we always help point people in the right direction." },
+            { q: "How long does it take?", a: "Timelines are fairly project and condition dependent, but overall CFD runs more efficient timelines than many of our 'competitors'. We have zero bureaucracy, get problems paired with solutions quickly, and love to execute. To give a concrete example, we have taken a consultation for a fence on Sunday, poured and set the posts on Monday, and compleated the fence Tuesday. That said, there are certain things like weather and material availability which we have no control over, but these are all things that we will communicate to you during your consultation if they might end up being pertinent. In our proposals we always provide a lower and upper threshold for your projects timeline."},
         ];
 
         const PORTFOLIO_ITEMS = [
-            { title: "Lake Street Dock Entrance", location: "San Mateo, CA", after: "assets/ignite-dockview-after.jpg", before: "assets/ignite-dockentrance-before.jpg" },
-            { title: "Foster City Backyard", location: "Foster City, CA", after: "assets/ajit-backyard-after.jpg", before: "assets/ajit-backyard-before.jpg" },
-            { title: "Half Moon Bay Estate", location: "Half Moon Bay, CA", after: "assets/marc-driveway-finished.jpg", before: "assets/marc-driveway-before.jpg" },
-            { title: "San Carlos Entry", location: "San Carlos, CA", after: "assets/andi-porch-after.jpg", before: "assets/andi-porch-before.jpg" },
-            { title: "Lake Street Driveway", location: "San Mateo, CA", after: "assets/ignite-driveway-after.jpg", before: "assets/ignite-driveway-before.jpg" },
-            { title: "San Bruno Side Steps", location: "San Bruno, CA", after: "assets/theresa-stairs-after.jpg", before: "assets/theresa-stairs-before.jpg" }
+            { title: "Susanne's Wrap Around Storage Bench", location: "San Mateo County, CA", images: ["assets/jobs/27_susanne_bench.jpg", "assets/jobs/27_susanne_bench.jpg"] },
+            { title: "Leah's Oak Fireplace Topper", location: "San Mateo County, CA", images: ["assets/jobs/28_leah_table.jpg", "assets/jobs/28_leah_table.jpg"] },
+            { title: "Michelle's Walnut Marble Speaker Tables", location: "San Mateo County, CA", images: ["assets/jobs/cal-fynn-amy-table.jpg", "assets/jobs/cal-fynn-amy-table.jpg"] },
+            { title: "Jane & Glenn's Teak Bench Refinishing", location: "San Mateo County, CA", images: ["assets/jobs/cal-fynn-outdoor-design.jpg", "assets/jobs/cal-fynn-outdoor-design.jpg"] },
+            { title: "Perry's Little Library & Dog Amenities Station", location: "San Mateo County, CA", images: ["assets/jobs/ignite-and-cal-after.jpg", "assets/jobs/ignite-and-cal-after.jpg"] },
+            { title: "Robin's Composite Deck & Awning", location: "San Mateo County, CA", images: ["assets/jobs/Robin-deck-after.jpg", "assets/jobs/Robin-deck-after.jpg"] },
+            { title: "Suzi's Awning Demolition, Hauling, & Rebuild", location: "San Mateo County, CA", images: ["assets/jobs/cal-fynn-robin-deck.jpg", "assets/jobs/cal-fynn-robin-deck.jpg"] },
+            { title: "Suzi's Redwood Burl Fence", location: "San Mateo County, CA", images: ["assets/jobs/fynn-karen-fence.jpg", "assets/jobs/fynn-karen-fence.jpg"] },
+            { title: "Susan's Flat Grill and Garbage Bin Areas", location: "Santa Clara County, CA", images: ["assets/jobs/cal-fynn-tina.jpg", "assets/jobs/cal-fynn-tina.jpg"] },
+            { title: "Peggy's Dog Fence", location: "San Mateo County, CA", images: ["assets/jobs/cal-peggy-fence.jpg", "assets/jobs/cal-peggy-fence.jpg"] },
+            { title: "Kathy's Crawlspace Cover & Meter Cabinet", location: "Santa Clara County, CA", images: ["assets/jobs/cal-fynn-karen-gate.jpg", "assets/jobs/cal-fynn-karen-gate.jpg"] },
+            { title: "Leslie's Twin Fence", location: "San Mateo County, CA", images: ["assets/jobs/fynn-karen-fence.jpg", "assets/jobs/fynn-karen-fence.jpg"] },
+            { title: "Marsha's Garden Bed Cover", location: "Santa Clara County, CA", images: ["assets/jobs/cal-garden-box.jpg", "assets/jobs/cal-garden-box.jpg"] },
+            { title: "Perry's Redwood Irrigation Control Box", location: "San Mateo County, CA", images: ["assets/jobs/cal-fynn-garden-box.jpg", "assets/jobs/cal-fynn-garden-box.jpg"] },
+            { title: "Tina's Potting Station", location: "San Mateo County, CA", images: ["assets/jobs/cal-tina-potingstation.jpg", "assets/jobs/cal-tina-potingstation.jpg"] },
+            { title: "Tina's Coffee Table", location: "San Mateo County, CA", images: ["assets/jobs/cal-tina-coffeetable.jpg", "assets/jobs/cal-tina-coffeetable.jpg"] },
+            { title: "Robin's Concrete Railing Fix", location: "San Mateo County, CA", images: ["assets/jobs/Robin-deck-after.jpg", "assets/jobs/Robin-deck-after.jpg"] },
+            { title: "Karen's 8x8 Runnen Patio", location: "Santa Clara County, CA", images: ["assets/jobs/cal-fynn-karen-gate.jpg", "assets/jobs/cal-fynn-karen-gate.jpg"] },
+            { title: "Ruthellen's Sill Plates", location: "San Mateo County, CA", images: ["assets/jobs/fynn-digging-ruthellen.jpg", "assets/jobs/fynn-digging-ruthellen.jpg"] },
+            { title: "Karen's Chicken Run Fence & Gate", location: "Santa Clara County, CA", images: ["assets/jobs/cal-fynn-karen-gate.jpg", "assets/jobs/cal-fynn-karen-gate.jpg"] },
+            { title: "Kay-Marie's Tomato Squirrel Excluder", location: "Santa Clara County, CA", images: ["assets/jobs/cal-garden-box.jpg", "assets/jobs/cal-garden-box.jpg"] },
+            { title: "Kamala's Custom Window Sill Planters", location: "San Mateo County, CA", images: ["assets/jobs/cal-fynn-garden-box.jpg", "assets/jobs/cal-fynn-garden-box.jpg"] },
+            { title: "Michele's Redwood Garden Box", location: "Santa Clara County, CA", images: ["assets/jobs/cal-garden-box.jpg", "assets/jobs/cal-garden-box.jpg"] },
+            { title: "Amy's Outdoor Table Sand and Restain", location: "San Mateo County, CA", images: ["assets/jobs/cal-fynn-amy-table.jpg", "assets/jobs/cal-fynn-amy-table.jpg"] },
+            { title: "Ruthellen's Redwood Garden Box", location: "San Mateo County, CA", images: ["assets/jobs/fynn-digging-ruthellen.jpg", "assets/jobs/fynn-digging-ruthellen.jpg"] },
+            { title: "Angela's Rinconada Garden Box", location: "Santa Clara County, CA", images: ["assets/jobs/ignite-and-cal-after.jpg", "assets/jobs/ignite-and-cal-after.jpg"] }
         ];
 
         const REVIEWS = [
-            "assets/Kerstin-S-nextdoor-review-2.jpg", "assets/Leslie-M-nextdoor-review.jpg", "assets/Kathy-L-nextdoor-review.jpg", "assets/Michelle-DB-nextdoor-review.jpg", "assets/Glenn-F-nextdoor-review.jpg", "assets/Kerstin-S-nextdoor-review-1.jpg",
-            "assets/Peggy-nextdoor-review-1.jpg", "assets/Perry-R-nextdoor-review.jpg", "assets/Staci-MF-nextdoor-review.jpg", "assets/Ruthellen-D-nextdoor-review.jpg", "assets/Peggy-H-nextdoor-review-2.jpg", "assets/Sara-F-nextdoor-review.jpg",
-            "assets/Karen-L-nextdoor-review.jpg", "assets/Marsha-D-nextdoor-review.jpg", "assets/Michele-K-nextdoor-review.jpg", "assets/Suzi-L-nextdoor-review.jpg", "assets/Yuet-B-nextdoor-review.jpg"
+            "assets/reviews/Kerstin-S-nextdoor-review-2.jpg", "assets/reviews/Leslie-M-nextdoor-review.jpg", "assets/reviews/Kathy-L-nextdoor-review.jpg", "assets/reviews/Michelle-DB-nextdoor-review.jpg", "assets/reviews/Glenn-F-nextdoor-review.jpg", "assets/reviews/Kerstin-S-nextdoor-review-1.jpg",
+            "assets/reviews/Peggy-nextdoor-review-1.jpg", "assets/reviews/Perry-R-nextdoor-review.jpg", "assets/reviews/Staci-MF-nextdoor-review.jpg", "assets/reviews/Ruthellen-D-nextdoor-review.jpg", "assets/reviews/Peggy-H-nextdoor-review-2.jpg", "assets/reviews/Sara-F-nextdoor-review.jpg",
+            "assets/reviews/Karen-L-nextdoor-review.jpg", "assets/reviews/Marsha-D-nextdoor-review.jpg", "assets/reviews/Michele-K-nextdoor-review.jpg", "assets/reviews/Suzi-L-nextdoor-review.jpg", "assets/reviews/Yuet-B-nextdoor-review.jpg"
         ];
 
         const VIBE_IMAGES = [
-            "assets/cal-fynn-amy-table.jpg",
-            "assets/cal-peggy-fence.jpg",
-            "assets/cal-garden-box.jpg",
-            "assets/cal-tina-coffeetable.jpg",
-            "assets/cal-tina-potingstation.jpg",
-            "assets/fynn-karen-fence.jpg",
+            "assets/jobs/cal-fynn-amy-table.jpg",
+            "assets/jobs/cal-peggy-fence.jpg",
+            "assets/jobs/cal-garden-box.jpg",
+            "assets/jobs/cal-tina-coffeetable.jpg",
+            "assets/jobs/cal-tina-potingstation.jpg",
+            "assets/jobs/fynn-karen-fence.jpg",
             "assets/Fynn-workshop.jpg",
-            "assets/fynn-digging-ruthellen.jpg",
-            "assets/cal-fynn-robin-deck.jpg",
-            "assets/ignite-and-cal-after.jpg",
-            "assets/cal-fynn-karen-gate.jpg",
-            "assets/cal-fynn-garden-box.jpg"
+            "assets/jobs/fynn-digging-ruthellen.jpg",
+            "assets/jobs/cal-fynn-robin-deck.jpg",
+            "assets/jobs/ignite-and-cal-after.jpg",
+            "assets/jobs/cal-fynn-karen-gate.jpg",
+            "assets/jobs/cal-fynn-garden-box.jpg"
         ];
 
         // --- Components ---
@@ -289,12 +304,12 @@
                                     <MapPin className="w-5 h-5 text-white/90" />
                                     San Mateo & Santa Clara County
                                 </p>
-                                <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif text-white leading-[1.05] mb-8 tracking-tight">
-                                    Quality Landscape <br />
-                                    <span className="font-light italic text-white/90">Design</span>
+                                <h1 className="text-5xl md:text-7xl lg:text-7xl font-serif text-white leading-[1.05] mb-8 tracking-tight">
+                                    Quality Carpentry <br />
+                                    <span className="font-light italic text-white/90">Design & Build</span>
                                 </h1>
                                 <p className="text-lg md:text-xl text-white/70 mb-10 leading-relaxed font-light">
-                                    Reimagining your outdoor space should be exciting, not stressful. We bridge the gap between intent and reality.
+                                    Two Palo Alto brothers building the custom outdoor projects other companies won't touch!
                                 </p>
                                 <div className="flex flex-col items-start gap-4">
                                     <a href="#inquiries" className="group bg-white text-arch-black px-10 py-4 rounded-sm text-sm font-bold tracking-[0.15em] uppercase hover:bg-arch-stone transition-all flex items-center justify-center gap-3 shadow-lg w-full md:w-auto">
@@ -347,7 +362,7 @@
                                 <Reveal delay={200}>
                                     <div className="relative">
                                         <div className="relative aspect-[3/4] md:aspect-[4/5] rounded-sm overflow-hidden shadow-xl border-8 border-white max-w-md mx-auto">
-                                            <img src="assets/Robin-deck-after.jpg" alt="Cal & Fynn" className="w-full h-full object-cover" />
+                                            <img src="assets/jobs/Robin-deck-after.jpg" alt="Cal & Fynn" className="w-full h-full object-cover" />
                                             <div className="absolute bottom-0 left-0 right-0 bg-white/95 p-6 border-t border-arch-stone">
                                                 <p className="font-serif text-arch-black text-xl italic mb-1">"Quality through clarity."</p>
                                                 <p className="text-arch-mineral text-xs uppercase tracking-widest font-bold">— Cal & Fynn</p>
@@ -363,13 +378,13 @@
                                         <span className="w-8 h-[1px] bg-arch-mineral"></span> Purpose
                                     </h2>
                                     <h3 className="text-3xl md:text-5xl font-serif text-arch-black mb-8 leading-tight">
-                                        Bridging the Gap Between <br /> <span className="italic text-arch-mineral">Homeowners & Contractors.</span>
+                                        Cleaning up your todo list, <br /> <span className="italic text-arch-mineral">zero headache.</span>
                                     </h3>
                                     <p className="text-arch-charcoal/80 leading-relaxed mb-10 text-base md:text-lg font-light border-l-2 border-arch-mineral/20 pl-6">
-                                        Projects often go wrong because of misaligned expectations. <span className="font-semibold text-arch-black">Cal & Fynn</span> uncover and translate your expectations to paper, then organize a contractor to properly execute.
+                                        Cal & Fynn specialize in those <span className="font-semibold text-arch-black">medium scale</span> projects that are a too big to tackle alone but too small for traditional companies to take seriously, or at a fair price. 
                                     </p>
                                     <ul className="space-y-4 border-t border-arch-stone pt-8">
-                                        {["Unbiased advice on outdoor goals", "Material recommendations & trade-offs", "Contractor organization & execution"].map((item, i) => (
+                                        {["Unparalleled communication", "Unique & creative solutions", "Intentional, precise, & flexible execution"].map((item, i) => (
                                             <li key={i} className="flex items-center gap-4 group">
                                                 <div className="w-6 h-6 rounded-full border border-arch-mineral flex items-center justify-center text-arch-mineral group-hover:bg-arch-mineral group-hover:text-white transition-colors">
                                                     <Check className="w-3.5 h-3.5" />
@@ -478,18 +493,18 @@
                         <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-arch-concrete to-transparent z-10 pointer-events-none"></div>
                         <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-arch-concrete to-transparent z-10 pointer-events-none"></div>
 
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 h-full hover-pause max-w-7xl mx-auto px-6">
-                            <div className="hidden md:block relative h-full overflow-hidden">
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 h-full max-w-7xl mx-auto px-6">
+                            <div className="hidden md:block relative h-full overflow-hidden hover-pause">
                                 <div className="animate-scroll-up w-full">
                                     {[...col1, ...col1].map((img, i) => <ReviewCard key={`c1-${i}`} img={img} />)}
                                 </div>
                             </div>
-                            <div className="relative h-full overflow-hidden">
+                            <div className="relative h-full overflow-hidden hover-pause">
                                 <div className="animate-scroll-down w-full">
                                     {[...col2, ...col2, ...col2].map((img, i) => <ReviewCard key={`c2-${i}`} img={img} />)}
                                 </div>
                             </div>
-                            <div className="hidden lg:block relative h-full overflow-hidden">
+                            <div className="hidden lg:block relative h-full overflow-hidden hover-pause">
                                 <div className="animate-scroll-up w-full">
                                     {[...col3, ...col3].map((img, i) => <ReviewCard key={`c3-${i}`} img={img} />)}
                                 </div>
@@ -501,19 +516,23 @@
         };
 
         const PortfolioCard = ({ item }) => {
-            const [showAfter, setShowAfter] = useState(true);
+            const [index, setIndex] = useState(0);
+            const [active, setActive] = useState('next');
+            const prev = (e) => { e.stopPropagation(); setActive('prev'); setIndex((i) => (i - 1 + item.images.length) % item.images.length); };
+            const next = (e) => { e.stopPropagation(); setActive('next'); setIndex((i) => (i + 1) % item.images.length); };
             return (
                 <div className="bg-white group cursor-pointer border border-arch-stone h-[400px] md:h-[500px] flex flex-col hover:border-arch-mineral/50 transition-colors">
                     <div className="relative flex-grow overflow-hidden bg-arch-stone">
-                        <img src={item.after} className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${showAfter ? 'opacity-100' : 'opacity-0'}`} />
-                        <img src={item.before} className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${showAfter ? 'opacity-0' : 'opacity-100'}`} />
+                        {item.images.map((img, i) => (
+                            <img key={i} src={img} className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${i === index ? 'opacity-100' : 'opacity-0'}`} />
+                        ))}
 
                         <div className="absolute top-4 left-4 bg-white/90 backdrop-blur px-3 py-1 text-[10px] uppercase font-bold tracking-widest text-arch-black">{item.location}</div>
 
-                        {/* Minimal Toggle */}
+                        {/* Navigation */}
                         <div className="absolute bottom-4 right-4 flex bg-white/95 border border-arch-stone p-1 gap-1">
-                            <button onClick={(e) => { e.stopPropagation(); setShowAfter(false) }} className={`px-3 py-1 text-[10px] uppercase tracking-wider font-bold transition-all ${!showAfter ? 'bg-arch-black text-white' : 'text-arch-charcoal hover:bg-gray-100'}`}>Before</button>
-                            <button onClick={(e) => { e.stopPropagation(); setShowAfter(true) }} className={`px-3 py-1 text-[10px] uppercase tracking-wider font-bold transition-all ${showAfter ? 'bg-arch-mineral text-white' : 'text-arch-charcoal hover:bg-gray-100'}`}>After</button>
+                            <button onClick={prev} onMouseEnter={() => setActive('prev')} className={`px-3 py-1 text-[10px] uppercase tracking-wider font-bold transition-all ${active === 'prev' ? 'bg-arch-mineral text-white' : 'text-arch-charcoal hover:bg-gray-100'}`}>Previous</button>
+                            <button onClick={next} onMouseEnter={() => setActive('next')} className={`px-3 py-1 text-[10px] uppercase tracking-wider font-bold transition-all ${active === 'next' ? 'bg-arch-mineral text-white' : 'text-arch-charcoal hover:bg-gray-100'}`}>Next</button>
                         </div>
                     </div>
                     <div className="p-6 bg-white border-t border-arch-stone">
