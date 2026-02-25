@@ -723,7 +723,7 @@
         );
 
         const App = () => {
-            const [showInquiry, setShowInquiry] = useState(false);
+            const [showInquiry, setShowInquiry] = useState(() => new URLSearchParams(window.location.search).has('inquire'));
             useEffect(() => {
                 if (showInquiry) {
                     gtag('event', 'inquiry_form_opened');
