@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CF Design - Bay Area</title>
     <meta name="description" content="Constructing beautiful solutions in San Mateo & Santa Clara County.">
+    <link rel="icon" href="assets/cf-icon.png" type="image/png">
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-DNSCN01BPT"></script>
@@ -187,9 +188,9 @@
 
         const FAQS = [
             { q: "How much does it cost?", a: "While this question is highly dependent on the scale and type of project, CFD aims to have a labor margin of around 50% - so if the materials cost $500, the job would cost around $1000. For the care, precision, flexibility, and overall dedication we pour into each project this is a killer deal. In fact, CFD has ZERO unsatisfied client alumni - something we are very proud of - and over half of our compleated projects have been returning clients. All of that said, we are not always the cheapest option, we like a quality final product and prefer to work with higher-end materials, if you're looking for quick and dirty we'll be the first to tell you we're not the team for you. Finally, we don't work at an hourly rate, we define a clear scope for the project and then bid it all as one job - if you're looking for hourly labor we are also not the right team for you." },
-            { q: "Are you licensed?", a: "No, not yet, but we are fully insured. Most of the work we do falls under the legal limitations of California Assembly Bill 2622 for unlicensed work, or the project surrounds movable personal property, not permanently attatched 'real' property which according to California legislature does not require a license - think an independent table or chair. We are fully insured though, so you have no personal liability for us if anything were to happen on your property - although nothing like that has happened and we are highly incentivised to make sure it never does. Any work that does not fall under one of these legal umbrellas we either bring in a licensed contractor to work with or we need to turn down - we are not a good option for people looking to complete larger projects, such as structural improvements, remodeling, electrical, plumbing, roofing - those should be compleated by a licensed contractor of that specialty, many of which we know well and would be happy to put you in contact with."},
+            { q: "Are you licensed?", a: "No, not yet, but we are fully insured. Most of the work we do falls under the legal limitations of California Assembly Bill 2622 for unlicensed work, or the project surrounds movable personal property, not permanently attatched 'real' property which according to California legislature does not require a license - think an independent table or chair. We are fully insured though, so you have no personal liability for us if anything were to happen on your property - although nothing like that has happened and we are highly incentivised to make sure it never does. Any work that does not fall under one of these legal umbrellas we either bring in a licensed contractor to work with or we need to turn down - we are not a good option for people looking to complete larger projects, such as structural improvements, remodeling, electrical, plumbing, roofing - those should be compleated by a licensed contractor of that specialty, many of which we know well and would be happy to put you in contact with." },
             { q: "Do you only do carpentry?", a: "Carpentry is where our value reaches it's pinacle, but we are also highly capable masons, welders, junk haulers, demolition experts, and to be honest we're pretty confident we could build just about anything given enough resources. If you're unsure if we'd be a good fit just let us know what you're facing using the intake form below, we'll be the first to tell you if it's not in our wheelhouse - we know what types of projects go well and which ones don't and we won't subject you or ourselves to anything unpleasant. If we don't end up being a good fit we always help point people in the right direction." },
-            { q: "How long does it take?", a: "Timelines are fairly project and condition dependent, but overall CFD runs more efficient timelines than many of our 'competitors'. We have zero bureaucracy, get problems paired with solutions quickly, and love to execute. To give a concrete example, we have taken a consultation for a fence on Sunday, poured and set the posts on Monday, and compleated the fence Tuesday. That said, there are certain things like weather and material availability which we have no control over, but these are all things that we will communicate to you during your consultation if they might end up being pertinent. In our proposals we always provide a lower and upper threshold for your projects timeline."},
+            { q: "How long does it take?", a: "Timelines are fairly project and condition dependent, but overall CFD runs more efficient timelines than many of our 'competitors'. We have zero bureaucracy, get problems paired with solutions quickly, and love to execute. To give a concrete example, we have taken a consultation for a fence on Sunday, poured and set the posts on Monday, and compleated the fence Tuesday. That said, there are certain things like weather and material availability which we have no control over, but these are all things that we will communicate to you during your consultation if they might end up being pertinent. In our proposals we always provide a lower and upper threshold for your projects timeline." },
         ];
 
         const PORTFOLIO_ITEMS = [
@@ -212,7 +213,7 @@
             { title: "Amy's Outdoor Table Sand and Restain", location: "San Mateo County, CA", published: false, images: ["assets/jobs/cal-fynn-amy-table.jpg", "assets/jobs/cal-fynn-amy-table.jpg"] },
             { title: "Ruthellen's Redwood Garden Box", location: "San Mateo County, CA", published: false, images: ["assets/jobs/fynn-digging-ruthellen.jpg", "assets/jobs/fynn-digging-ruthellen.jpg"] },
             { title: "Kamala's Custom Window Sill Planters", location: "San Mateo County, CA", published: false, images: ["assets/jobs/cal-fynn-garden-box.jpg", "assets/jobs/cal-fynn-garden-box.jpg"] },
-            
+
             { title: "Susanne's Wrap Around Storage Bench", location: "San Mateo County, CA", published: false, images: ["assets/jobs/27_susanne_bench.jpg", "assets/jobs/27_susanne_bench.jpg"] },
             { title: "Leah's Black Oak Fireplace Topper", location: "San Mateo County, CA", published: false, images: ["assets/jobs/28_leah_table.jpg", "assets/jobs/28_leah_table.jpg"] },
             { title: "Jane & Glenn's Teak Bench Refinishing", location: "San Mateo County, CA", published: false, images: ["assets/jobs/jane_teakbench.jpg", "assets/jobs/cal-fynn-outdoor-design.jpg"] },
@@ -257,8 +258,7 @@
                 <nav className={`fixed w-full z-50 transition-all duration-500 ${scrolled ? 'bg-arch-black/90 backdrop-blur-md border-b border-white/10' : 'bg-transparent py-4 md:py-6'}`}>
                     <div className="container mx-auto px-6 flex justify-between items-center h-16">
                         <div className="flex items-center gap-3">
-                            <img src="assets/cf-icon.png" alt="CF Icon" className="h-8 w-auto mix-blend-difference invert brightness-0 saturate-100" style={{ filter: 'invert(1)' }} />
-                            <span className="font-serif text-lg tracking-wide font-bold text-white">CF Design</span>
+                            <span className="font-serif text-lg tracking-wide font-bold text-white">cf.design</span>
                         </div>
                         <div className="hidden md:flex items-center space-x-8">
                             {['Purpose', 'Process', 'Portfolio', 'Reviews', 'FAQ'].map((item) => (
@@ -305,7 +305,7 @@
                             <div className="max-w-xl">
                                 <p className="text-white/70 font-bold tracking-[0.25em] uppercase text-xs md:text-sm mb-6 flex items-center gap-3">
                                     <MapPin className="w-5 h-5 text-white/90" />
-                                Bay Area, CA
+                                    Bay Area, CA
                                 </p>
                                 <h1 className="text-[2.7rem] md:text-7xl lg:text-7xl font-serif text-white leading-[1.05] mb-8 tracking-tight">
                                     Quality Carpentry <br />
@@ -314,15 +314,15 @@
                                 <p className="text-lg md:text-xl text-white/70 mb-10 leading-relaxed font-light">
                                     Two brothers building the custom projects other companies won't touch!
                                 </p>
-                                <div className="flex flex-col items-stretch gap-4 md:w-[400px]">
+                                <div className="flex flex-col items-stretch gap-4 md:w-[400px] ">
                                     <a href="#inquiries" className="group bg-white text-arch-black px-10 py-4 rounded-sm text-sm font-bold tracking-[0.15em] uppercase hover:bg-arch-stone transition-all flex items-center justify-center gap-3 shadow-lg">
                                         Book Consultation
                                         <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                                     </a>
-                                    <span className="text-white/40 text-[10px] md:text-xs tracking-wide italic ml-1 flex items-center gap-2">
+                                    <span className="text-white/40 text-[12px] md:text-[14px] tracking-wide italic ml-1 flex items-center gap-2">
                                         * Free within 30 minutes of Palo Alto
                                     </span>
-                                    <a href="#purpose" className="group border border-white text-white px-10 py-2 rounded-sm text-sm font-bold tracking-[0.15em] uppercase hover:bg-white/10 transition-all flex items-center justify-center gap-3">
+                                    <a href="#purpose" className="group border border-white text-white px-10 py-2 mt-10 rounded-sm text-sm font-bold tracking-[0.15em] uppercase hover:bg-white/10 transition-all flex items-center justify-center gap-3">
                                         Learn More
                                         <ChevronDown className="w-4 h-4 group-hover:translate-y-1 transition-transform" />
                                     </a>
@@ -388,7 +388,7 @@
                                         Clean up your todo list, <br /> <span className="italic text-arch-mineral">zero headache.</span>
                                     </h3>
                                     <p className="text-arch-charcoal/80 leading-relaxed mb-10 text-base md:text-lg font-light border-l-2 border-arch-mineral/20 pl-6">
-                                        Cal & Fynn specialize in <span className="font-semibold text-arch-black">medium scale</span> projects that are a too big to tackle alone but too small for traditional companies to take seriously, or at a fair price. 
+                                        Cal & Fynn specialize in <span className="font-semibold text-arch-black">medium scale</span> projects that are a too big to tackle alone but too small for traditional companies to take seriously, or at a fair price.
                                     </p>
                                     <ul className="space-y-4 border-t border-arch-stone pt-8">
                                         {["Unparalleled communication", "Unique & creative solutions", "Intentional, precise, & flexible execution"].map((item, i) => (
@@ -607,8 +607,8 @@
                 const deleting = val.length < prev.length;
                 if (!d.length) return '';
                 if (d.length <= 3) return deleting ? `(${d}` : `(${d})`;
-                if (d.length <= 6) return `(${d.slice(0,3)}) ${d.slice(3)}`;
-                return `(${d.slice(0,3)}) ${d.slice(3,6)}-${d.slice(6)}`;
+                if (d.length <= 6) return `(${d.slice(0, 3)}) ${d.slice(3)}`;
+                return `(${d.slice(0, 3)}) ${d.slice(3, 6)}-${d.slice(6)}`;
             };
             return (
                 <section id="inquiries" className="py-20 md:py-32 bg-arch-black text-white relative">
