@@ -57,6 +57,7 @@
                     animation: {
                         'slow-zoom': 'zoom 30s infinite alternate',
                         'fade-in': 'fadeIn 1s ease-out forwards',
+                        'fade-in-fast': 'fadeIn 0.2s ease-out forwards',
                         'scroll-up': 'scrollUp 60s linear infinite',
                         'scroll-down': 'scrollDown 60s linear infinite',
                         'float': 'float 6s ease-in-out infinite',
@@ -245,7 +246,7 @@
 
         // --- Components ---
 
-        const Nav = () => {
+        const Nav = ({ onInquiry }) => {
             const [isOpen, setIsOpen] = useState(false);
             const [scrolled, setScrolled] = useState(false);
             useEffect(() => {
@@ -264,15 +265,16 @@
                             {['Purpose', 'Process', 'Portfolio', 'Reviews', 'FAQ'].map((item) => (
                                 <a key={item} href={`#${item.toLowerCase()}`} className="text-xs font-semibold tracking-[0.2em] uppercase transition-colors text-white/80 hover:text-white">{item}</a>
                             ))}
-                            <a href="#inquiries" className="px-6 py-2.5 rounded-sm text-xs font-bold tracking-[0.15em] uppercase border transition-all border-white text-white hover:bg-white hover:text-arch-black">Start Project</a>
+                            <button onClick={onInquiry} className="px-6 py-2.5 rounded-sm text-xs font-bold tracking-[0.15em] uppercase border transition-all border-white text-white hover:bg-white hover:text-arch-black cursor-pointer">Start Project</button>
                         </div>
                         <button onClick={() => setIsOpen(!isOpen)} className="md:hidden text-white">{isOpen ? <X /> : <Menu />}</button>
                     </div>
                     {isOpen && (
                         <div className="absolute top-full left-0 w-full bg-white shadow-xl py-8 px-6 flex flex-col space-y-4 md:hidden border-t border-gray-100">
-                            {['Purpose', 'Process', 'Portfolio', 'Reviews', 'FAQ', 'Inquiries'].map((item) => (
+                            {['Purpose', 'Process', 'Portfolio', 'Reviews', 'FAQ'].map((item) => (
                                 <a key={item} href={`#${item.toLowerCase()}`} onClick={() => setIsOpen(false)} className="text-lg font-serif text-arch-charcoal border-b border-gray-100 pb-3">{item}</a>
                             ))}
+                            <button onClick={() => { setIsOpen(false); onInquiry(); }} className="text-lg font-serif text-arch-charcoal border-b border-gray-100 pb-3 text-left cursor-pointer">Inquiries</button>
                         </div>
                     )}
                 </nav>
@@ -292,7 +294,7 @@
             </div>
         );
 
-        const Hero = () => {
+        const Hero = ({ onInquiry }) => {
             const col1 = VIBE_IMAGES.slice(0, Math.ceil(VIBE_IMAGES.length / 2));
             const col2 = VIBE_IMAGES.slice(Math.ceil(VIBE_IMAGES.length / 2));
             const buttonRef = useRef(null);
@@ -315,9 +317,9 @@
 
                     {/* Sticky mobile CTA */}
                     {stickyBtn && (
-                        <a href="#inquiries" className="md:hidden fixed top-3 left-4 right-20 z-[60] bg-white text-arch-black py-3 rounded-sm text-xs font-bold tracking-[0.15em] uppercase hover:bg-arch-stone transition-all flex items-center justify-center gap-2 shadow-lg animate-fade-in">
+                        <button onClick={onInquiry} className="md:hidden fixed top-3 left-4 right-20 z-[60] bg-white text-arch-black py-3 rounded-sm text-xs font-bold tracking-[0.15em] uppercase hover:bg-arch-stone transition-all flex items-center justify-center gap-2 shadow-lg animate-fade-in cursor-pointer">
                             Book Consultation
-                        </a>
+                        </button>
                     )}
 
                     {/* Left: Text & CTA */}
@@ -336,10 +338,10 @@
                                     Two brothers building the custom projects other companies won't touch!
                                 </p>
                                 <div className="flex flex-col items-stretch gap-4 md:w-[400px]">
-                                    <a ref={buttonRef} href="#inquiries" className="group bg-white text-arch-black px-10 py-4 rounded-sm text-sm font-bold tracking-[0.15em] uppercase hover:bg-arch-stone transition-all flex items-center justify-center gap-3 shadow-lg">
+                                    <button ref={buttonRef} onClick={onInquiry} className="group bg-white text-arch-black px-10 py-4 rounded-sm text-sm font-bold tracking-[0.15em] uppercase hover:bg-arch-stone transition-all flex items-center justify-center gap-3 shadow-lg cursor-pointer">
                                         Book Consultation
                                         <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                                    </a>
+                                    </button>
                                     <span className="text-white/40 text-[12px] md:text-[14px] tracking-wide italic ml-1 flex items-center gap-2">
                                         * Free within 30 minutes of Palo Alto
                                     </span>
@@ -620,7 +622,7 @@
             );
         };
 
-        const Contact = () => {
+        const Contact = ({ isOpen, onClose }) => {
             const [nearPaloAlto, setNearPaloAlto] = useState(null);
             const [phone, setPhone] = useState('');
             const formatPhone = (val, prev) => {
@@ -631,29 +633,35 @@
                 if (d.length <= 6) return `(${d.slice(0, 3)}) ${d.slice(3)}`;
                 return `(${d.slice(0, 3)}) ${d.slice(3, 6)}-${d.slice(6)}`;
             };
+            useEffect(() => {
+                if (!isOpen) return;
+                const onKey = (e) => { if (e.key === 'Escape') { e.preventDefault(); e.stopPropagation(); onClose(); } };
+                window.addEventListener('keydown', onKey);
+                return () => window.removeEventListener('keydown', onKey);
+            }, [isOpen]);
+            if (!isOpen) return null;
             return (
-                <section id="inquiries" className="py-20 md:py-32 bg-arch-black text-white relative">
-                    <div className="container mx-auto px-6 relative z-10">
-                        <Reveal className="lg:hidden">
+                <div className="fixed inset-0 z-[70] bg-arch-black/95 backdrop-blur-md overflow-y-auto animate-fade-in-fast">
+                    <button onClick={onClose} className="fixed top-6 right-6 z-[80] text-white hover:text-arch-stone transition-colors cursor-pointer"><X className="w-6 h-6" /></button>
+                    <div className="container mx-auto px-6 py-20 md:py-32 text-white relative">
+                        <div className="lg:hidden mb-4">
                             <h2 className="text-xs font-bold tracking-[0.25em] text-arch-stone uppercase mb-8">Inquiries</h2>
-                            <h3 className="text-4xl md:text-5xl font-serif mb-8 leading-tight">Let's Discuss <br /> Your Project</h3>
-                            <p className="text-arch-stone/60 mb-12 leading-relaxed font-light text-sm md:text-base">Once submitted, Cal or Fynn will reach out via text message within 24 hours.</p>
-                        </Reveal>
+                            <h3 className="text-4xl md:text-5xl font-serif mb-8 leading-tight">Get Solutions.</h3>
+                            <p className="text-arch-stone/60 mb-0 leading-relaxed font-light text-sm md:text-base">Once submitted, Cal or Fynn will reach out via text message within 24 hours.</p>
+                        </div>
                         <div className="flex flex-col lg:flex-row gap-16 md:gap-20">
                             <div className="lg:w-1/3 order-2 lg:order-1">
-                                <Reveal>
-                                    <div className="hidden lg:block">
-                                        <h2 className="text-xs font-bold tracking-[0.25em] text-arch-stone uppercase mb-8">Inquiries</h2>
-                                        <h3 className="text-4xl md:text-5xl font-serif mb-8 leading-tight">Let's Discuss <br /> Your Project</h3>
-                                        <p className="text-arch-stone/60 mb-12 leading-relaxed font-light text-sm md:text-base">Once submitted, Cal or Fynn will reach out via text message within 24 hours.</p>
-                                    </div>
-                                    <div className="space-y-6 text-arch-stone">
-                                        <div className="flex items-center gap-4"><Mail className="w-5 h-5 text-white" /><span>info@cf.design</span></div>
-                                        <div className="flex items-center gap-4"><MapPin className="w-5 h-5 text-white" /><span>Serving San Mateo & Santa Clara County</span></div>
-                                        <a href="https://www.instagram.com/cf.design__/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 hover:text-white transition-colors"><Instagram className="w-5 h-5 text-white" /><span>@cf.design__</span></a>
-                                        <a href="https://nextdoor.com/profile/015tg6pQ9_FFrx_sT" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 hover:text-white transition-colors"><Home className="w-5 h-5 text-white" /><span>Nextdoor</span></a>
-                                    </div>
-                                </Reveal>
+                                <div className="hidden lg:block">
+                                    <h2 className="text-xs font-bold tracking-[0.25em] text-arch-stone uppercase mb-8">Inquiries</h2>
+                                    <h3 className="text-4xl md:text-5xl font-serif mb-8 leading-tight">Get Solutions.</h3>
+                                    <p className="text-arch-stone/60 mb-12 leading-relaxed font-light text-sm md:text-base">Once submitted, Cal or Fynn will reach out via text message within 24 hours.</p>
+                                </div>
+                                <div className="space-y-6 text-arch-stone">
+                                    <div className="flex items-center gap-4"><Mail className="w-5 h-5 text-white" /><span>info@cf.design</span></div>
+                                    <div className="flex items-center gap-4"><MapPin className="w-5 h-5 text-white" /><span>Serving San Mateo & Santa Clara County</span></div>
+                                    <a href="https://www.instagram.com/cf.design__/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 hover:text-white transition-colors"><Instagram className="w-5 h-5 text-white" /><span>@cf.design__</span></a>
+                                    <a href="https://nextdoor.com/page/cf-design" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 hover:text-white transition-colors"><Home className="w-5 h-5 text-white" /><span>Nextdoor</span></a>
+                                </div>
                             </div>
                             <div className="lg:w-2/3 order-1 lg:order-2">
                                 <form className="space-y-12" action="https://formspree.io/f/mpqlvore" method="POST">
@@ -701,7 +709,7 @@
                             </div>
                         </div>
                     </div>
-                </section>
+                </div>
             );
         };
 
@@ -714,11 +722,27 @@
             </footer>
         );
 
-        const App = () => (
-            <div className="font-sans text-arch-charcoal bg-arch-concrete">
-                <Nav /><Hero /><Purpose /><Process /><Portfolio /><Reviews /><FAQ /><Contact /><Footer />
-            </div>
-        );
+        const App = () => {
+            const [showInquiry, setShowInquiry] = useState(false);
+            useEffect(() => {
+                if (showInquiry) {
+                    gtag('event', 'inquiry_form_opened');
+                    document.body.style.overflow = 'hidden';
+                } else {
+                    document.body.style.overflow = '';
+                }
+                return () => { document.body.style.overflow = ''; };
+            }, [showInquiry]);
+            return (
+                <div className="font-sans text-arch-charcoal bg-arch-concrete">
+                    <Nav onInquiry={() => setShowInquiry(true)} />
+                    <Hero onInquiry={() => setShowInquiry(true)} />
+                    <Purpose /><Process /><Portfolio /><Reviews /><FAQ />
+                    <Contact isOpen={showInquiry} onClose={() => setShowInquiry(false)} />
+                    <Footer />
+                </div>
+            );
+        };
 
         const root = ReactDOM.createRoot(document.getElementById('root'));
         root.render(<App />);
