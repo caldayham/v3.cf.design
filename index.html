@@ -377,7 +377,7 @@
                                     <span className="text-white/40 text-[12px] md:text-[14px] tracking-wide italic ml-1 flex items-center gap-2">
                                         * Free within 30 minutes of Palo Alto
                                     </span>
-                                    <a href="#purpose" className="group border border-white text-white px-10 py-2 mt-0 lg:mt-4 rounded-sm text-sm font-bold tracking-[0.15em] uppercase hover:bg-white/10 transition-all flex items-center justify-center gap-3">
+                                    <a href="#purpose" className="group border border-white text-white px-10 py-2 mt-4 rounded-sm text-sm font-bold tracking-[0.15em] uppercase hover:bg-white/10 transition-all flex items-center justify-center gap-3">
                                         Learn More
                                         <ChevronDown className="w-4 h-4 group-hover:translate-y-1 transition-transform" />
                                     </a>
@@ -689,10 +689,7 @@
                                     <p className="text-arch-stone/60 mb-12 leading-relaxed font-light text-sm md:text-base">Once submitted, Cal or Fynn will reach out via text message within 24 hours.</p>
                                 </div>
                                 <div className="space-y-6 text-arch-stone">
-                                    <div className="flex items-center gap-4"><Mail className="w-5 h-5 text-white" /><span>info@cf.design</span></div>
                                     <div className="flex items-center gap-4"><MapPin className="w-5 h-5 text-white" /><span>Serving San Mateo & Santa Clara County</span></div>
-                                    <a href="https://www.instagram.com/cf.design__/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 hover:text-white transition-colors"><Instagram className="w-5 h-5 text-white" /><span>@cf.design__</span></a>
-                                    <a href="https://nextdoor.com/page/cf-design" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 hover:text-white transition-colors"><Home className="w-5 h-5 text-white" /><span>Nextdoor</span></a>
                                 </div>
                             </div>
                             <div className="lg:w-2/3 order-1 lg:order-2">
@@ -725,10 +722,12 @@
                                             <label className="block text-xs font-bold uppercase tracking-widest text-arch-stone mb-4">How did you hear about us?</label>
                                             <select name="referral_source" required className="w-full bg-transparent border-b border-white/20 py-2 focus:border-white outline-none transition-colors text-lg font-serif appearance-none cursor-pointer" style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23E5E4E2' stroke-width='2'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E\")", backgroundRepeat: 'no-repeat', backgroundPosition: 'right 0 center' }}>
                                                 <option value="" disabled selected style={{ color: '#999' }}>Select one</option>
-                                                <option value="Builder Recommendation">Builder Recommendation</option>
-                                                <option value="Homeowner Recommendation">Homeowner Recommendation</option>
+                                                <option value="Builder Referral">Builder Referral</option>
+                                                <option value="Homeowner Referral">Homeowner Referral</option>
                                                 <option value="Google">Google</option>
                                                 <option value="Nextdoor">Nextdoor</option>
+                                                <option value="Instagram">Instagram</option>
+                                                <option value="Other">Other</option>
                                             </select>
                                         </div>
                                     </div>
