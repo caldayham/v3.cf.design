@@ -202,14 +202,14 @@
         const PORTFOLIO_ITEMS = [
             { title: "Perry's Double-Decker Little Library & Dog Amenities Station", location: "San Mateo County, CA", published: true, images: ["assets/jobs/25_perry_library.jpg", "assets/jobs/25_perry_library.jpg"] },
             { title: "Michelle's Marble Topped Black Walnut Speaker Tables", location: "San Mateo County, CA", published: true, images: ["assets/jobs/26_michelle_tables.jpg", "assets/jobs/26_michelle_tables.jpg"] },
-            { title: "Robin's Composite Deck & Redwood Awning", location: "San Mateo County, CA", published: true, images: ["assets/jobs/Robin-deck-after.jpg", "assets/jobs/Robin-deck-after.jpg"] },
+            { title: "Perry's Tri-Door Redwood Irrigation Control Box", location: "San Mateo County, CA", published: true, images: ["assets/jobs/13_perry_irrigation.jpg", "assets/jobs/13_perry_irrigation.jpg"] },
             { title: "Suzi's Redwood Burl Cut-Out Fence", location: "San Mateo County, CA", published: true, images: ["assets/jobs/21_suzi_fence.jpg", "assets/jobs/21_suzi_fence.jpg"] },
+            { title: "Tina's Redwood & Stainless Steel Potting Station", location: "San Mateo County, CA", published: true, images: ["assets/jobs/11_tina_potting.jpg", "assets/jobs/11_tina_potting.jpg"] },
             { title: "Peggy's Back Yard Dog Fence", location: "San Mateo County, CA", published: true, images: ["assets/jobs/cal-peggy-fence.jpg", "assets/jobs/cal-peggy-fence.jpg"] },
             { title: "Kathy's Redwood Crawlspace Cover", location: "Santa Clara County, CA", published: true, images: ["assets/jobs/16_kathy_crawlspace.jpg", "assets/jobs/16_kathy_crawlspace.jpg"] },
             { title: "Leslie's Twin Fence", location: "San Mateo County, CA", published: true, images: ["assets/jobs/15_leslie_fence.jpg", "assets/jobs/15_leslie_fence.jpg"] },
             { title: "Marsha's Dual Bay Door Garden Bed Cover", location: "Santa Clara County, CA", published: true, images: ["assets/jobs/14_marsha_excluder.jpg", "assets/jobs/14_marsha_excluder.jpg"] },
-            { title: "Perry's Tri-Door Redwood Irrigation Control Box", location: "San Mateo County, CA", published: true, images: ["assets/jobs/13_perry_irrigation.jpg", "assets/jobs/13_perry_irrigation.jpg"] },
-            { title: "Tina's Redwood & Stainless Steel Potting Station", location: "San Mateo County, CA", published: true, images: ["assets/jobs/11_tina_potting.jpg", "assets/jobs/11_tina_potting.jpg"] },
+            { title: "Robin's Composite Deck & Redwood Awning", location: "San Mateo County, CA", published: true, images: ["assets/jobs/Robin-deck-after.jpg", "assets/jobs/Robin-deck-after.jpg"] },
             { title: "Karen's Back Yard Sand-Set Runnen Patio", location: "Santa Clara County, CA", published: true, images: ["assets/jobs/10_kerstin_patio.jpg", "assets/jobs/10_kerstin_patio.jpg"] },
             { title: "Karen's Chicken Run Fence & Gate", location: "Santa Clara County, CA", published: true, images: ["assets/jobs/fynn-karen-fence.jpg", "assets/jobs/fynn-karen-fence.jpg"] },
             { title: "Kay-Marie's Tomato Protection Squirrel Excluder", location: "Santa Clara County, CA", published: true, images: ["assets/jobs/07_kay_excluder.jpg", "assets/jobs/07_kay_excluder.jpg"] },
@@ -680,7 +680,7 @@
                             <h2 className="text-xs font-bold tracking-[0.25em] text-arch-stone uppercase mb-8">Inquiries</h2>
                             <h3 className="text-4xl md:text-5xl font-serif mb-8 leading-tight">Get Solutions.</h3>
                             <p className="text-arch-stone/60 mb-4 leading-relaxed font-light text-sm">Once submitted, Cal or Fynn will send you a quick text message within 24 hours :)</p>
-                            <p className="text-arch-stone/60 mb-4 leading-relaxed font-light text-sm">We only use your information to contact you directly. We never share information.</p>
+                            <p className="text-arch-stone/60 mb-4 leading-relaxed font-light text-sm">We only use your information to contact you directly. We will never share your information.</p>
                         </div>
                         <div className="flex flex-col lg:flex-row gap-16 md:gap-20">
                             <div className="lg:w-1/3 order-2 lg:order-1">
@@ -724,11 +724,12 @@
                                             <label className="block text-xs font-bold uppercase tracking-widest text-arch-stone mb-4">How did you hear about us?</label>
                                             <select name="referral_source" required className="w-full bg-transparent border-b border-white/20 py-2 focus:border-white outline-none transition-colors text-lg font-serif appearance-none cursor-pointer" style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23E5E4E2' stroke-width='2'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E\")", backgroundRepeat: 'no-repeat', backgroundPosition: 'right 0 center' }}>
                                                 <option value="" disabled selected style={{ color: '#999' }}>Select one</option>
-                                                <option value="Builder Referral">Builder Referral</option>
-                                                <option value="Homeowner Referral">Homeowner Referral</option>
-                                                <option value="Google">Google</option>
-                                                <option value="Nextdoor">Nextdoor</option>
-                                                <option value="Instagram">Instagram</option>
+                                                <option value="Builder_Referral">Builder Referral</option>
+                                                <option value="Homeowner_Referral">Homeowner Referral</option>
+                                                <option value="Google_Search">Google</option>
+                                                <option value="Nextdoor_Post">Nextdoor</option>
+                                                <option value="Instagram_Post">Instagram</option>
+                                                <option value="Local_Mail_Brochure">Local Mail Brochure</option>
                                                 <option value="Other">Other</option>
                                             </select>
                                         </div>
